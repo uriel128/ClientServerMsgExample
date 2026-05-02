@@ -38,10 +38,10 @@ public class ClientView implements Initializable {
     private void connectToServer() {
         new Thread(() -> {
             try {
-                socket = new Socket("localhost", 6666);
+                socket = new Socket("localhost", 3000);
                 dis = new DataInputStream(socket.getInputStream());
                 dos = new DataOutputStream(socket.getOutputStream());
-                addMessage("Connected to localhost:6666");
+                addMessage("Connected to localhost:3000");
 
                 while (true) {
                     String incoming = dis.readUTF();

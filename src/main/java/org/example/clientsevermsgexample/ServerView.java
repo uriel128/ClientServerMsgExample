@@ -39,8 +39,8 @@ public class ServerView implements Initializable {
 
     private void startServer() {
         new Thread(() -> {
-            try (ServerSocket serverSocket = new ServerSocket(6666, 1, InetAddress.getByName("localhost"))) {
-                addMessage("Waiting on localhost:6666...");
+            try (ServerSocket serverSocket = new ServerSocket(3000, 1, InetAddress.getByName("localhost"))) {
+                addMessage("Waiting on localhost:3000...");
                 socket = serverSocket.accept();
                 dis = new DataInputStream(socket.getInputStream());
                 dos = new DataOutputStream(socket.getOutputStream());
