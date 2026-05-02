@@ -230,4 +230,26 @@ public class MainController implements Initializable {
         javafx.application.Platform.runLater(() -> lb122.setText(message + "\n"));
     }
 
+    @FXML
+    void openUser1Chat(ActionEvent event) {
+        openChatWindow("client-view.fxml", "User 1 (Client)");
+    }
+
+    @FXML
+    void openUser2Chat(ActionEvent event) {
+        openChatWindow("server-view.fxml", "User 2 (Server)");
+    }
+
+    private void openChatWindow(String fxmlName, String title) {
+        try {
+            Parent root = FXMLLoader.load(NetworkApplication.class.getResource(fxmlName));
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            resultArea.appendText("Unable to open chat: " + e.getMessage() + "\n");
+        }
+    }
+
 }
